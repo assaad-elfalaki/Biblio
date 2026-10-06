@@ -19,4 +19,20 @@ class Livre {
     public function getTitre(): string { return $this->titre; }
     public function getAuteur(): string { return $this->auteur; }
     public function estDisponible(): bool { return $this->disponible; }
+
+        public function emprunter(): void
+    {
+        if (!$this->disponible) {
+            throw new Exception("Le livre '{$this->titre}' est déjà emprunté.");
+        }
+        $this->disponible = false;
+    }
+
+    public function rendre(): void
+    {
+        if ($this->disponible) {
+            throw new Exception("Le livre '{$this->titre}' n'est pas emprunté.");
+        }
+        $this->disponible = true;
+    }
 }
