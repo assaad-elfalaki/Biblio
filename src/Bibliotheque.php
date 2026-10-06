@@ -12,4 +12,10 @@ class Bibliotheque {
     public function compter(): int {
         return count($this->livres);
     }
+    public function trouver(string $isbn): ?Livre {
+        return $this->livres[$isbn] ?? null;
+    }
+    public function tous(): array {
+        return array_values($this->livres);
+    }
 }
