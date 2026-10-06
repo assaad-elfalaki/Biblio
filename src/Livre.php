@@ -35,4 +35,10 @@ class Livre {
         }
         $this->disponible = true;
     }
+
+    public function __toString(): string
+    {
+        $etat = $this->disponible ? 'disponible' : 'emprunté';
+        return "[{$this->isbn}] {$this->titre} - {$this->auteur} ($etat)";
+    }
 }
