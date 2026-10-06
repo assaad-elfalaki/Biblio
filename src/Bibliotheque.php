@@ -18,4 +18,11 @@ class Bibliotheque {
     public function tous(): array {
         return array_values($this->livres);
     }
+    public function rechercher(string $mot): array {
+        $mot = mb_strtolower($mot);
+        return array_values(array_filter(
+            $this->livres,
+            fn(Livre $l) => str_contains(mb_strtolower($l->getTitre()), $mot) || str_contains(mb_strtolower($l->getAuteur()), $mot)
+        ));
+    }
 }
