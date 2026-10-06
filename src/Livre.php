@@ -1,3 +1,7 @@
+/**
+ * Un livre de la bibliothèque, identifié par son ISBN (10 ou 13 chiffres).
+ */
+
 <?php
 class Livre {
     private string $isbn;
