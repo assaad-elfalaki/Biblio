@@ -10,6 +10,10 @@ verifier($biblio->trouver('9782100545261')?->getTitre() === 'Algo', 'trouver ret
 verifier($biblio->trouver('0000000000') === null, 'trouver retourne null si absent');
 verifier(count($biblio->tous()) === 1, 'tous() retourne tous les livres');
 
+verifier(count($biblio->rechercher('ALGO')) === 1, 'rechercher ignore la casse (titre)');
+verifier(count($biblio->rechercher('cormen')) === 1, 'rechercher trouve par auteur');
+verifier(count($biblio->rechercher('introuvable')) === 0, 'rechercher sans résultat');
+
 try {
     $biblio->ajouter(new Livre('9782100545261','Autre titre','Autre auteur'));
     verifier(false,'Un ISBN en double doit lever une exception!');
