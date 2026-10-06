@@ -15,4 +15,8 @@ class Livre {
         $this->titre = $titre;
         $this->auteur = $auteur;
     }
+    public function getIsbn(): string { return $this->isbn; }
+    public function getTitre(): string { return $this->titre; }
+    public function getAuteur(): string { return $this->auteur; }
+    public function estDisponible(): bool { return $this->disponible; }
 }
